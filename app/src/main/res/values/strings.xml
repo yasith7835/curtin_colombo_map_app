@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">MapApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="content_description_lobby">Lobby Location</string>
+    <string name="content_description_cocoffee_cafe">Cocoffee Cafe Location</string>
+    <string name="content_description_lt_105">LT-105 Location</string>
+    <string name="content_description_meeting_room_01">Meeting Room-01 Location</string>
+    <string name="content_description_academic_registration">Academic Registration Location</string>
+    <string name="content_description_staff_room">Staff Room Location</string>
+    <string name="content_description_lt_101">LT-101 Location</string>
+    <string name="content_description_lt_102">LT-102 Location</string>
+    <string name="content_description_lt_103">LT-103 Location</string>
+    <string name="content_description_lt_104">LT-104 Location</string>
+    <string name="content_description_game_room">Game Room Location</string>
+    <string name="content_description_students_cafeteria">Students Cafeteria Location</string>
+    <string name="content_description_sports_court">Sports Court Location</string>
+
+    <string name="content_description_engineering_lab">Engineering Lab Location</string>
+    <string name="content_description_lt_201">LT-201 Location</string>
+    <string name="content_description_computing_lab_01">Computing Lab 01 Location</string>
+    <string name="content_description_academic_staff">Academic Staff Location</string>
+    <string name="content_description_meeting_room_02">Meeting Room-02 Location</string>
+    <string name="content_description_lobby_02">Lobby-02 Location</string>
+    <string name="content_description_boardroom">Boardroom Location</string>
+    <string name="content_description_library">Library Location</string>
+    <string name="content_description_discussion_room">Discussion Room Location</string>
+    <string name="content_description_lt_202">LT-202 Location</string>
+    <string name="content_description_lt_203">LT-203 Location</string>
+    <string name="content_description_lt_204">LT-204 Location</string>
+    <string name="content_description_lt_205">LT-205 Location</string>
+    <string name="content_description_lt_206">LT-206 Location</string>
+    <string name="content_description_lt_207">LT-207 Location</string>
+    <string name="content_description_computer_lab_2">Computer Lab 2 Location</string>
+
+</resources>

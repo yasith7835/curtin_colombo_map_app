@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.yellow));
 
-        TextView marqueeText = findViewById(R.id.marqueeText);
-        marqueeText.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-        marqueeText.setSelected(true);
+//        TextView marqueeText = findViewById(R.id.marqueeText);
+//        marqueeText.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+//        marqueeText.setSelected(true);
         LiveDataClass viewModel = new ViewModelProvider(this).get(LiveDataClass.class);
         loadGroundFloorFragment();
         viewModel.clickedValue.observe(this, new Observer<Integer>() {

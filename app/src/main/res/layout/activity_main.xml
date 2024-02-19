@@ -17,14 +17,14 @@
         android:layout_weight="1">
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/marqueeText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="This is an application in very early development and subject to errors and glitches| "
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:singleLine="true"
-        android:paddingBottom="10dp"/>
+<!--    <TextView-->
+<!--        android:id="@+id/marqueeText"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="This is an application in very early development and subject to errors and glitches| "-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="15sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:singleLine="true"-->
+<!--        android:paddingBottom="10dp"/>-->
 </LinearLayout>

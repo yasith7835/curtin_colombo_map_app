@@ -58,14 +58,9 @@ public class GroundFloorFragment extends Fragment {
     }
 
     private ImageView mapImageView;
-    private ConstraintLayout lobbyConstraint, cocoffeeCafeConstraint, lt105Constraint,
-            meetingRoom01Constraint, academicRegistrationConstraint, staffRoomConstraint,
-            lt101Constraint, lt102Constraint, lt103Constraint, lt104Constraint, gameRoomConstraint,
-            studentsCafeteriaConstraint, sportsCourtConstraint;
-
     private List<Locations> locationList;
     private Dialog dialog;
-    LocationsDAO locationsDAO;
+    private LocationsDAO locationsDAO;
     private float scaleFactor = 1.0f;
     private float lastX, lastY;
     private Matrix matrix = new Matrix();
@@ -109,6 +104,7 @@ public class GroundFloorFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 viewModel.setClickedValue(1);
+                viewModel.setLastClickedValue(1);
             }
         });
         groundFloorButton.setOnClickListener(new View.OnClickListener() {

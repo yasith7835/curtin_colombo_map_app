@@ -56,7 +56,7 @@ public class FirstFloorFragment extends Fragment {
     private ImageView mapImageView;
     private Dialog dialog;
     private List<Locations> locationList;
-    LocationsDAO locationsDAO;
+    private LocationsDAO locationsDAO;
     private float scaleFactor = 1.0f;
     private float lastX, lastY;
     private Matrix matrix = new Matrix();
@@ -94,6 +94,7 @@ public class FirstFloorFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 viewModel.setClickedValue(2);
+                viewModel.setLastClickedValue(2);
             }
         });
         firstFloorButton.setOnClickListener(new View.OnClickListener() {

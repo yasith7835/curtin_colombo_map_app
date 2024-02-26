@@ -5,37 +5,54 @@ package com.example.mapapp;
  *  Date of completion: 10/02/2024
  *  App: A navigator app on the various locations inside the Curtin Colombo Navam Mawatha campus
  *  ***********************************************************************************************/
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.google.android.material.navigation.NavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    ActionBarDrawerToggle drawerToggle;
     GroundFloorFragment groundFloorFragment = new GroundFloorFragment();
     FirstFloorFragment firstFloorFragment = new FirstFloorFragment();
     SearchResultFragment searchResultFragment = new SearchResultFragment();
     private List<Locations> locationsList;
     private LocationsDAO locationsDAO;
     private LiveDataClass viewModel;
+    private SearchView searchView;
+    private ImageButton leadToCCButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,17 +61,22 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.yellow));
         viewModel = new ViewModelProvider(this).get(LiveDataClass.class);
 
-//        TextView marqueeText = findViewById(R.id.marqueeText);
-//        marqueeText.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-//        marqueeText.setSelected(true);
-
         // Load the ground floor initially
         loadGroundFloorFragment();
 
-        SearchView searchView = findViewById(R.id.searchView);
+        leadToCCButton = findViewById(R.id.leadToCCButton);
+        searchView = findViewById(R.id.searchView);
         locationsDAO = LocationsDBInstance.getDataBase(getApplicationContext()).locationsDAO();
         // Retrieve all locations
         locationsList = locationsDAO.getAllLocations();
+
+        // Set up lead to cc button
+        leadToCCButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewMapButtonClicked();
+            }
+        });
 
         // Set up the SearchView
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -140,4 +162,36 @@ public class MainActivity extends AppCompatActivity {
         viewModel.setFilteredList(filteredList);
         loadSearchResultFragment();
     }
+
+    private void viewMapButtonClicked(){
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            // Location services are not enabled, prompt the user to enable them
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Location services are disabled. Do you want to enable them?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // Open location settings screen
+                            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        } else {
+            // Location services are enabled, proceed with launching Google Maps
+            String destination = "Curtin Colombo";
+            Uri uri = Uri.parse("google.navigation:q=" + Uri.encode(destination));
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.setPackage("com.google.android.apps.maps");
+            startActivity(intent);
+        }
+    }
+
 }

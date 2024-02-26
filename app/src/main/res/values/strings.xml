@@ -32,5 +32,7 @@
     <string name="content_description_lt_206">LT-206 Location</string>
     <string name="content_description_lt_207">LT-207 Location</string>
     <string name="content_description_computer_lab_2">Computer Lab 2 Location</string>
-
+    
+    <string name="open">Open Navigation Drawer</string>
+    <string name="close">Close Navigation Drawer</string>
 </resources>

@@ -7,11 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.ortiz.touchview.TouchImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,11 +60,33 @@ public class LocationsListAdapter extends RecyclerView.Adapter<LocationsListVH> 
         dialog.setContentView(R.layout.fragment_description);
         TextView locationName = dialog.findViewById(R.id.name);
         ImageView locationImage = dialog.findViewById(R.id.image);
+        TouchImageView locationZoomableImage = dialog.findViewById(R.id.imageZoomable);
         TextView locationDescription = dialog.findViewById(R.id.description);
+        Button button = dialog.findViewById(R.id.button);
 
         locationName.setText(pin.getName());
         locationImage.setImageResource(pin.getImageResourceId());
+        locationZoomableImage.setImageResource(pin.getImageResourceId());
         locationDescription.setText(pin.getDescription());
+
+        // Disappear zoomable image initially
+        locationZoomableImage.setVisibility(View.GONE);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (button.getText().equals("+")) {
+                    locationImage.setVisibility(View.GONE);
+                    locationZoomableImage.setVisibility(View.VISIBLE);
+                    button.setText("-");
+                }
+                else if (button.getText().equals("-")) {
+                    locationImage.setVisibility(View.VISIBLE);
+                    locationZoomableImage.setVisibility(View.GONE);
+                    button.setText("+");
+                }
+            }
+        });
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();

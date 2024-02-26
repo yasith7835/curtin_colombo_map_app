@@ -11,9 +11,22 @@
     tools:context=".DescriptionFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
+
+        <com.ortiz.touchview.TouchImageView
+            android:id="@+id/imageZoomable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:src="@drawable/lobby"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </com.ortiz.touchview.TouchImageView>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image"
@@ -37,6 +50,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:background="@drawable/gradient_overlay_black"
+            android:rotation="180"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
@@ -47,6 +70,18 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="+"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/zoom_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

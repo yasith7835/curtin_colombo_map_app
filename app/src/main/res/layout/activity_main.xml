@@ -10,15 +10,28 @@
 
     <include layout="@layout/toolbar_title_layout"/>
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="100dp"
-        android:layout_margin="8dp"
-        android:background="@drawable/search_view_background"
-        app:queryHint="Search locations here..."
-        app:iconifiedByDefault="false" />
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/search_view_background"
+            app:queryHint="Search locations here..."
+            app:iconifiedByDefault="false" />
+
+        <ImageButton
+            android:id="@+id/leadToCCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/location_pin"
+            android:layout_margin="7dp" />
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/mainFrame"

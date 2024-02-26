@@ -36,6 +36,7 @@ dependencies {
     implementation("com.github.MikeOrtiz:TouchImageView:1.4.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.room:room-runtime:2.6.1")
+    implementation("com.jsibbold:zoomage:1.3.1")
     annotationProcessor("androidx.room:room-compiler:2.6.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

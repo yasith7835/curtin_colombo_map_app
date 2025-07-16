@@ -9,7 +9,7 @@
 ### Expand and Scroll Location Image
 <img width="483" height="1079" alt="Screenshot 2025-07-16 081759" src="https://github.com/user-attachments/assets/7c80e273-6185-402c-80aa-ac65d659a9d9" />
 
-### Scrollable Aerial VIew of Curtin COlombo First Floor
+### Scrollable Aerial View of Curtin Colombo First Floor
 <img width="483" height="1079" alt="Screenshot 2025-07-16 081823" src="https://github.com/user-attachments/assets/b518886e-b13f-4864-9cc2-604310aa211a" />
 
 ### Stylized Search Resut List of Available Locations
